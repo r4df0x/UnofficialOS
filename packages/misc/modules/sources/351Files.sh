@@ -5,6 +5,6 @@
 # Copyright (C) 2020-present Fewtarius
 
 . /etc/profile
-jslisten set "killall FileMan"
+jslisten set "killall 351Files"
 
-fileman
+351Files
