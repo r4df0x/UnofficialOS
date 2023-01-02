@@ -2,7 +2,7 @@
 # Copyright (C) 2022-present BrooksyTech (https://github.com/brooksytech)
 
 PKG_NAME="yuzusa"
-PKG_VERSION="1b11e0f0d3209603e67b26f3ef22f1d1a493bbdc"
+PKG_VERSION="88f5d38b9349afefd9257a779323531b21001500"
 PKG_ARCH="x86_64"
 PKG_LICENSE="GPLv3"
 PKG_SITE="https://github.com/yuzu-emu/yuzu"
@@ -33,6 +33,7 @@ fi
 PKG_CMAKE_OPTS_TARGET+="        -DENABLE_QT=OFF \
                                 -DCMAKE_BUILD_TYPE=Release \
                                 -DYUZU_USE_BUNDLED_SDL2=OFF \
+                                -DYUZU_USE_BUNDLED_QT=OFF \
                                 -DYUZU_TESTS=OFF \
                                 -DENABLE_SDL2=ON \
                                 -DARCHITECTURE_x86_64=ON \
@@ -42,7 +43,7 @@ PKG_CMAKE_OPTS_TARGET+="        -DENABLE_QT=OFF \
 
 makeinstall_target() {
   mkdir -p ${INSTALL}/usr/bin
-  cp -rf ${PKG_BUILD}/.${TARGET_NAME}/bin/yuzu-cmd ${INSTALL}/usr/bin
+  cp -rf ${PKG_BUILD}/.${TARGET_NAME}/bin/yuzu* ${INSTALL}/usr/bin
   cp -rf ${PKG_DIR}/scripts/* ${INSTALL}/usr/bin
 
   chmod +x ${INSTALL}/usr/bin/start_yuzu.sh

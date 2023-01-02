@@ -7,7 +7,7 @@ PKG_ARCH="any"
 PKG_LICENSE="custom"
 PKG_SITE=""
 PKG_URL=""
-PKG_DEPENDS_TARGET="toolchain rclone portmaster thememaster"
+PKG_DEPENDS_TARGET="toolchain rclone"
 PKG_SHORTDESC="OS Modules Package"
 PKG_LONGDESC="OS Modules Package"
 PKG_IS_ADDON="no"
@@ -29,6 +29,7 @@ post_makeinstall_target() {
     x86_64)
       rm -f ${INSTALL}/usr/config/modules/*32bit*
       rm -f ${INSTALL}/usr/config/modules/*Master*
+      rm -f ${INSTALL}/usr/config/modules/*351Files*
     ;;
     *)
       rm -f ${INSTALL}/usr/config/modules/Install*
