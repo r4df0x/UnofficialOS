@@ -38,7 +38,7 @@ PKG_TOOLS="i2c-tools rclone jslisten evtest tailscale pygobject"
 
 ### Tools for mainline devices
 case "${DEVICE}" in
-  handheld)
+  handheld|RG552)
     PKG_TOOLS+=" mesa-demos"
   ;;
 esac

@@ -29,8 +29,14 @@ x86_64: handheld
 
 RK3566: RG503 RG353P
 
+RK3399: RG552
+
 handheld:
 	DEVICE_ROOT=handheld PROJECT=PC DEVICE=handheld ARCH=x86_64 ./scripts/build_distro
+
+RG552:
+	DEVICE_ROOT=RG552 PROJECT=Rockchip DEVICE=RG552 ARCH=arm ./scripts/build_distro
+	DEVICE_ROOT=RG552 PROJECT=Rockchip DEVICE=RG552 ARCH=aarch64 ./scripts/build_distro
 
 RG503:
 	DEVICE_ROOT=RG503 PROJECT=Rockchip DEVICE=RG503 ARCH=arm ./scripts/build_distro
@@ -41,7 +47,7 @@ RG353P:
 	DEVICE_ROOT=RG503 PROJECT=Rockchip DEVICE=RG353P ARCH=aarch64 ./scripts/build_distro
 
 update:
-	PROJECT=PC DEVICE=handheld ARCH=x86_64 ./scripts/update_packages
+	PROJECT=Rockchip DEVICE=RG552 ARCH=aarch64 ./scripts/update_packages
 
 package:
 	./scripts/build ${PACKAGE}
@@ -51,7 +57,7 @@ package-clean:
 
 ## Docker builds - overview
 # docker-* commands just wire up docker to call the normal make command via docker
-# For example: make docker-handheld will use docker to call: make handheld
+# For example: make docker-RG552 will use docker to call: make RG552
 # All variables are scoped to docker-* commands to prevent weird collisions/behavior with non-docker commands
 
 docker-%: DOCKER_IMAGE := "justenoughlinuxos/jelos-build:latest"
