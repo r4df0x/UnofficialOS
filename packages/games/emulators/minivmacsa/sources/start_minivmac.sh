@@ -7,4 +7,4 @@
 ARG=${1//[\\]/}
 export SDL_AUDIODRIVER=alsa
 echo "[${ARG}]"
-minivmac
+${FAST_CORES} minivmac
