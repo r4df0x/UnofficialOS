@@ -106,6 +106,10 @@ Building JELOS is easy, the fastest and most recommended method is to instruct t
 
 | Device | Dependency | Docker Command |
 | ---- | ---- | ---- |
+|RG503||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG503```|
+|RG353P|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
+|RG353V|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
+|RG353M|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
 |handheld||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-handheld```|
 |ALL DEVICES||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-world```|
 
@@ -176,9 +180,9 @@ mv wireguard-linux-compat-v1.0.20211208 wireguard-linux-compat
 cp -rf wireguard-linux-compat wireguard-linux-compat.orig
 
 # Make your changes to wireguard-linux-compat
-mkdir -p ../../packages/network/wireguard-linux-compat/patches/handheld
+mkdir -p ../../packages/network/wireguard-linux-compat/patches/RG503
 # run from the sources dir
-diff -rupN wireguard-linux-compat wireguard-linux-compat.orig >../../packages/network/wireguard-linux-compat/patches/handheld/mychanges.patch
+diff -rupN wireguard-linux-compat wireguard-linux-compat.orig >../../packages/network/wireguard-linux-compat/patches/RG503/mychanges.patch
 ```
 
 ### Creating a patch for a package using git
@@ -200,9 +204,9 @@ If you already have a build for your device made using the above process, it's s
 ```
 # Update the package version for a new package, or apply your patch as above.
 vim/emacs/vscode/notepad.exe
-# Export the variables needed to complete your build, we'll assume you are building handheld, update the device to match your configuration.
+# Export the variables needed to complete your build, we'll assume you are building for the RG503, update the device to match your configuration.
 export OS_VERSION=$(date +%Y%m%d) BUILD_DATE=$(date)
-export PROJECT=PC ARCH=x86_64 DEVICE=handheld
+export PROJECT=Rockchip DEVICE=RG503 ARCH=aarch64
 # Clean the package you are building.
 ./scripts/clean emulationstation
 # Build the package.
