@@ -16,7 +16,10 @@ PKG_PATCH_DIRS+="${TARGET_ARCH}/${DEVICE}"
 
 make_target() {
   cd ${PKG_BUILD}
-  if [[ "${DEVICE}" =~ RG503 ]] || [[ "${DEVICE}" =~ RG353P ]]
+  if [[ "${DEVICE}" =~ RG351 ]] || [[ "${DEVICE}" =~ RGB20S ]]
+  then
+    make -f Makefile.libretro GIT_VERSION=${PKG_VERSION} platform=RG351x
+  elif [[ "${DEVICE}" =~ RG503 ]] || [[ "${DEVICE}" =~ RG353P ]]
   then
     make -f Makefile.libretro GIT_VERSION=${PKG_VERSION} platform=RK3566
   else
