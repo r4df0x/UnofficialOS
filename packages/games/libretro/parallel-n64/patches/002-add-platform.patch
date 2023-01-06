@@ -24,8 +24,8 @@ index 8a719d55..bc243d06 100644
 +      WITH_DYNAREC = aarch64
 +   endif
 +
-+   # RK3356
-+   ifneq (,$(findstring RK3326,$(platform)))
++   # RK3566
++   ifneq (,$(findstring RK3566,$(platform)))
 +      TARGET := $(TARGET_NAME)_libretro.so
 +      CPUFLAGS += -DARM_FIX -DCLASSIC
 +      GLES = 1
