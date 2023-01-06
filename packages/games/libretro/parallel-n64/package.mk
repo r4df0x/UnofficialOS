@@ -23,7 +23,7 @@ fi
 
 case ${DEVICE} in
   RG351P|RG351V|RG351MP|RGB20S)
-    PKG_MAKE_OPTS_TARGET=" platform=RG351x"
+    PKG_MAKE_OPTS_TARGET=" platform=unix_RK3326"
   ;;
   RG503|RG353P)
    PKG_MAKE_OPTS_TARGET+=" platform=unix_RK3566"

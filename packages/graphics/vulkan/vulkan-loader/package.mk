@@ -3,33 +3,51 @@
 # Copyright (C) 2021-present Team LibreELEC (https://libreelec.tv)
 
 PKG_NAME="vulkan-loader"
-PKG_VERSION="1.3.237"
-PKG_SHA256="03cfe1cb3dc5623304f64a2d0e8714dd8b51702da71365dacb9fbdc1f9ac138e"
+PKG_VERSION="1.3.217"
+PKG_SHA256="59c0e4934fca328366bbb50b3a8d2dfc3daeab7589fdadd7a29b8a79fe242a7f"
 PKG_LICENSE="Apache-2.0"
 PKG_SITE="https://github.com/KhronosGroup/Vulkan-Loader"
 PKG_URL="https://github.com/KhronosGroup/Vulkan-Loader/archive/v${PKG_VERSION}.tar.gz"
-PKG_DEPENDS_TARGET="toolchain Python3:host vulkan-headers"
+PKG_DEPENDS_HOST="toolchain:host vulkan-headers:host"
+PKG_DEPENDS_TARGET="toolchain vulkan-headers"
 PKG_LONGDESC="Vulkan Installable Client Driver (ICD) Loader."
 
 configure_package() {
+  # Builds asm_offset binary for GAS / GNU Assembler
+  if [ "${ARCH}" != "arm" ]; then
+    PKG_DEPENDS_TARGET+=" vulkan-loader:host"
+  fi
+
   # Displayserver Support
   if [ "${DISPLAYSERVER}" = "x11" ]; then
-    PKG_DEPENDS_TARGET+=" libxcb libX11 libXrandr"
+    PKG_DEPENDS_TARGET+=" libxcb libX11"
   elif [ "${DISPLAYSERVER}" = "wl" ]; then
     PKG_DEPENDS_TARGET+=" wayland"
   fi
+}
+
+pre_configure_host() {
+  PKG_CMAKE_OPTS_HOST="-DBUILD_WSI_XCB_SUPPORT=OFF \
+                       -DBUILD_WSI_XLIB_SUPPORT=OFF \
+                       -DBUILD_WSI_WAYLAND_SUPPORT=OFF \
+                       -DBUILD_TESTS=OFF"
+
+  # Hack to workaround missing options to build a standalone asm_offset binary,
+  # if the glibc version of the host & target system differs build will fail otherwise.
+  sed -e 's|COMMAND asm_offset GAS|COMMAND ./asm_offset GAS|g' -i ${PKG_BUILD}/loader/CMakeLists.txt
+}
+
+makeinstall_host() {
+  cp ${PKG_BUILD}/.${HOST_NAME}/loader/asm_offset ${TOOLCHAIN}/bin/
 }
 
 pre_configure_target() {
   PKG_CMAKE_OPTS_TARGET="-DBUILD_TESTS=OFF"
 
   # GAS / GNU Assembler is only supported by aarch64 & x86_64
-  HOST_ARCH=$(uname -m)
-  case ${HOST_ARCH} in
-     arm|aarch64)
-       PKG_CMAKE_OPTS_TARGET+=" -DUSE_GAS=OFF"
-     ;;
-  esac
+  if [ "${ARCH}" = "arm" ]; then
+    PKG_CMAKE_OPTS_TARGET+=" -DUSE_GAS=OFF"
+  fi
 
   if [ "${DISPLAYSERVER}" = "x11" ]; then
     PKG_CMAKE_OPTS_TARGET+=" -DBUILD_WSI_XCB_SUPPORT=ON \
@@ -44,4 +62,7 @@ pre_configure_target() {
                              -DBUILD_WSI_XLIB_SUPPORT=OFF \
                              -DBUILD_WSI_WAYLAND_SUPPORT=OFF"
   fi
+
+  # Hack to run asm_offset located at toolchain path
+  sed -e 's|COMMAND ./asm_offset GAS|COMMAND asm_offset GAS|g' -i ${PKG_BUILD}/loader/CMakeLists.txt
 }
