@@ -106,6 +106,15 @@ Building JELOS is easy, the fastest and most recommended method is to instruct t
 
 | Device | Dependency | Docker Command |
 | ---- | ---- | ---- |
+|RG552||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG552```|
+|RG503||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG503```|
+|RG353P|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
+|RG353V|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
+|RG353M|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
+|RG351P||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG351P```|
+|RG351V|RG351P|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG351V```|
+|RG351MP|RG351P|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG351MP```|
+|RGB20S||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RGB20S```|
 |handheld||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-handheld```|
 |ALL DEVICES||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-world```|
 
@@ -125,17 +134,17 @@ sudo apt install gcc make git unzip wget \
                 qemu-user-binfmt zstd parted imagemagick docker.io
 ```
 
-Next, build the version of JELOS for your device.  See the table above for dependencies. 
+Next, build the version of JELOS for your device.  See the table above for dependencies.  If you're building for the RG351V, RG351P will be built first to provide the build root dependency.  To execute a build, run `make {device}`
 
 ```
-make handheld
+make RG351V
 ```
 
 ### Building a single package
 It is also possible to build individual packages.
 ```
-DEVICE=handheld ARCH=x86_64 ./scripts/clean busybox
-DEVICE=handheld ARCH=x86_64 ./scripts/build busybox
+DEVICE=RG351V ARCH=aarch64 ./scripts/clean busybox
+DEVICE=RG351V ARCH=aarch64 ./scripts/build busybox
 ```
 
 > Note: Emulation Station package build requires additional steps because its source code located in a separate repository, see instructions inside, [link](https://github.com/JustEnoughLinuxOS/distribution/blob/main/packages/ui/emulationstation/package.mk).
@@ -176,9 +185,9 @@ mv wireguard-linux-compat-v1.0.20211208 wireguard-linux-compat
 cp -rf wireguard-linux-compat wireguard-linux-compat.orig
 
 # Make your changes to wireguard-linux-compat
-mkdir -p ../../packages/network/wireguard-linux-compat/patches/handheld
+mkdir -p ../../packages/network/wireguard-linux-compat/patches/RG503
 # run from the sources dir
-diff -rupN wireguard-linux-compat wireguard-linux-compat.orig >../../packages/network/wireguard-linux-compat/patches/handheld/mychanges.patch
+diff -rupN wireguard-linux-compat wireguard-linux-compat.orig >../../packages/network/wireguard-linux-compat/patches/RG503/mychanges.patch
 ```
 
 ### Creating a patch for a package using git
@@ -200,9 +209,9 @@ If you already have a build for your device made using the above process, it's s
 ```
 # Update the package version for a new package, or apply your patch as above.
 vim/emacs/vscode/notepad.exe
-# Export the variables needed to complete your build, we'll assume you are building handheld, update the device to match your configuration.
+# Export the variables needed to complete your build, we'll assume you are building for the RG503, update the device to match your configuration.
 export OS_VERSION=$(date +%Y%m%d) BUILD_DATE=$(date)
-export PROJECT=PC ARCH=x86_64 DEVICE=handheld
+export PROJECT=Rockchip DEVICE=RG503 ARCH=aarch64
 # Clean the package you are building.
 ./scripts/clean emulationstation
 # Build the package.

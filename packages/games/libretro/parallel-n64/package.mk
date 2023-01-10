@@ -21,6 +21,18 @@ if [ "${OPENGLES_SUPPORT}" = yes ]; then
   PKG_DEPENDS_TARGET+=" ${OPENGLES}"
 fi
 
+case ${DEVICE} in
+  RG351P|RG351V|RG351MP|RGB20S)
+    PKG_MAKE_OPTS_TARGET=" platform=unix_RK3326"
+  ;;
+  RG503|RG353P)
+   PKG_MAKE_OPTS_TARGET+=" platform=unix_RK3566"
+  ;;
+  RG552)
+    PKG_MAKE_OPTS_TARGET=" platform=unix_RK3399"
+  ;;
+esac
+
 makeinstall_target() {
   mkdir -p ${INSTALL}/usr/lib/libretro
   cp parallel_n64_libretro.so ${INSTALL}/usr/lib/libretro/

@@ -88,7 +88,8 @@ PKG_CMAKE_OPTS_TARGET+="${PKG_CMAKE_OPTS_TARGET} \
                         -DUNITTEST=OFF \
                         -DSIMULATOR=OFF \
                         -DHEADLESS=OFF \
-                        -DUSE_DISCORD=OFF"
+                        -DUSE_DISCORD=OFF \
+                        -DUSE_ARMIPS=OFF"
 
 pre_make_target() {
   # fix cross compiling
