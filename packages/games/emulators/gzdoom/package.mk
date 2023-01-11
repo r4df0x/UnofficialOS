@@ -3,12 +3,12 @@
 # Copyright (C) 2022 Fewtarius
 
 PKG_NAME="gzdoom"
-PKG_VERSION="8eb9c095f31c201533a16ccbae33892c11721373"
+PKG_VERSION="02dae0e6bbf8c93fa7bd8e9377448a77b51a4b92"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/JustEnoughLinuxOS/gzdoom"
+PKG_SITE="https://github.com/dhwz/gzdoom"
 PKG_URL="${PKG_SITE}.git"
 PKG_DEPENDS_HOST="toolchain zmusic:host"
-PKG_DEPENDS_TARGET="toolchain SDL2 gzdoom:host zmusic"
+PKG_DEPENDS_TARGET="toolchain SDL2 gzdoom:host zmusic libvpx"
 PKG_SHORTDESC="GZDoom is a modder-friendly OpenGL and Vulkan source port based on the DOOM engine"
 PKG_LONGDESC="GZDoom is a modder-friendly OpenGL and Vulkan source port based on the DOOM engine"
 GET_HANDLER_SUPPORT="git"
@@ -29,7 +29,12 @@ makeinstall_host() {
 
 pre_configure_host(){
 PKG_CMAKE_OPTS_HOST=" -DZMUSIC_LIBRARIES=$(get_build_dir zmusic)/build_host/source/libzmusic.so \
-                      -DZMUSIC_INCLUDE_DIR=$(get_build_dir zmusic)/include"
+                      -DZMUSIC_INCLUDE_DIR=$(get_build_dir zmusic)/include \
+                      -DCMAKE_BUILD_TYPE=Release \
+                      -DCMAKE_RULE_MESSAGES=OFF \
+                      -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+                      -DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
+                      -DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG""
 }
 
 pre_configure_target() {
@@ -37,6 +42,10 @@ PKG_CMAKE_OPTS_TARGET=" -DNO_GTK=ON \
                         -DFORCE_CROSSCOMPILE=ON \
                         -DIMPORT_EXECUTABLES=${PKG_BUILD}/.${HOST_NAME}/ImportExecutables.cmake \
                         -DCMAKE_BUILD_TYPE=Release \
+                        -DCMAKE_RULE_MESSAGES=OFF \
+                        -DCMAKE_VERBOSE_MAKEFILE:BOOL=ON \
+                        -DCMAKE_C_FLAGS_RELEASE="-DNDEBUG" \
+                        -DCMAKE_CXX_FLAGS_RELEASE="-DNDEBUG" \
                         -DHAVE_GLES2=ON \
                         -DHAVE_VULKAN=OFF \
                         -DZMUSIC_LIBRARIES=$(get_build_dir zmusic)/build_target/source/libzmusic.so -DZMUSIC_INCLUDE_DIR=$(get_build_dir zmusic)/include"
