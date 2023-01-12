@@ -36,6 +36,15 @@ echo "Sync modules..." >>${LOG}
 rsync -a /usr/config/modules/* /storage/.config/modules/
 cp -f /usr/config/retroarch/retroarch-core-options.cfg /storage/.config/retroarch/retroarch-core-options.cfg
 
+echo "Checking ThemeMaster..."
+if [ -d "/usr/share/ThemeMaster" ]; then
+  if [ -d "/storage/roms/ports/ThemeMaster" ]; then
+    echo "Updating ThemeMaster..."
+    rsync -a /usr/share/ThemeMaster/* /storage/roms/ports/ThemeMaster/
+    chmod -R 755 /storage/roms/ports/ThemeMaster
+  fi
+fi
+
 echo "Sync theme..." >>${LOG}
 cd /usr/share/themes
 for theme in *
