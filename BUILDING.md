@@ -1,14 +1,14 @@
-# Developing and Building JELOS
+# Developing and Building UnofficialOS
 
-JELOS is a fairly unique distribution as it is *built to order* and only enough of the operating system and applications are built for the purpose of booting and executing emulators and ports.  Developers and others who would like to contribute to our project should read and agree to the [Contributor Covenant Code of Conduct](https://github.com/JustEnoughLinuxOS/distribution/blob/main/CODE_OF_CONDUCT.md) and [Contributing to JELOS](https://github.com/JustEnoughLinuxOS/distribution/blob/main/CONTRIBUTING.md) guides before submitting your first contribution.
+UnofficialOS is a fairly unique distribution as it is *built to order* and only enough of the operating system and applications are built for the purpose of booting and executing emulators and ports.  Developers and others who would like to contribute to our project should read and agree to the [Contributor Covenant Code of Conduct](https://github.com/RetroGFX/UnofficialOS/blob/main/CODE_OF_CONDUCT.md) and [Contributing to UnofficialOS](https://github.com/RetroGFX/UnofficialOS/blob/main/CONTRIBUTING.md) guides before submitting your first contribution.
 
 
 ## Filesystem Structure
-We have a simple filesystem structure adopted from parent distributions CoreELEC, LibreELEC, etc.
+We have a simple filesystem structure adopted from parent distributions JELOS, CoreELEC, LibreELEC, etc.
 
 ```
 .
-├── build.JELOS-DEVICE.ARCHITECTURE
+├── build.{DEVICE}.{ARCHITECTURE}
 ├── config
 ├── distributions
 ├── Dockerfile
@@ -23,9 +23,9 @@ We have a simple filesystem structure adopted from parent distributions CoreELEC
 └── tools
 ```
 
-**build.JELOS-DEVICE.ARCHITECTURE**
+**build.{DEVICE}.{ARCHITECTURE}**
 
-Build roots for each device and that devices architecture(s).  For ARM devices JELOS builds and uses a 32bit root for several of the cores used in the 64bit distribution.
+Build roots for each device and that devices architecture(s).  For ARM devices UnofficialOS builds and uses a 32bit root for several of the cores used in the 64bit distribution.
 
 **config**
 
@@ -37,7 +37,7 @@ Distributions contains distribution specific build flags and parameters and spla
 
 **Dockerfile**
 
-Used to build the Ubuntu container used to build JELOS.  The container is hosted at [https://hub.docker.com/u/justenoughlinuxos](https://hub.docker.com/u/justenoughlinuxos)
+Used to build the Ubuntu container used to build UnofficialOS.  The container is hosted at [https://hub.docker.com/u/unofficialos](https://hub.docker.com/u/unofficialos)
 
 **licenses**
 
@@ -45,11 +45,11 @@ All of the licenses used throughout the distribution packages are hosted here.  
 
 **Makefile**
 
-Used to build one or more JELOS images, or to build and deploy the Ubuntu container.
+Used to build one or more UnofficialOS images, or to build and deploy the Ubuntu container.
 
 **packages**
 
-All of the package set that is used to develop and build JELOS are hosted within the packages directory.  The package structure documentation is available in [PACKAGE.md](PACKAGE.md)
+All of the package set that is used to develop and build UnofficialOS are hosted within the packages directory.  The package structure documentation is available in [PACKAGE.md](PACKAGE.md)
 
 **post-update**
 
@@ -75,15 +75,15 @@ As the distribution is being built, package source are fetched and hosted in thi
 
 The tools directory contains utility scripts that can be used during the development process, including a simple tool to burn an image to a usb drive or sdcard.
 
-## Building JELOS
-Building JELOS requires an Ubuntu 22.04 host with approximately 200GB of free space for a single device, or 800GB of free space for a full world build.  Other Linux distributions may be used when building using Docker, however this is untested and unsupported.  We recommend building with no more than 8 cores.
+## Building UnofficalOS
+Building UnofficialOS requires an Ubuntu 22.04 host with approximately 200GB of free space for a single device, or 800GB of free space for a full world build.  Other Linux distributions may be used when building using Docker, however this is untested and unsupported.  We recommend building with no more than 8 cores.
 
-### Cloning the JELOS Sources
-To build JELOS, start by cloning the project git repository.
+### Cloning the UnofficialOS Sources
+To build UnofficialOS, start by cloning the project git repository.
 
 ```
 cd ~
-git clone https://github.com/JustEnoughLinuxOS/distribution.git
+git clone https://github.com/RetroGFX/UnofficialOS.git
 ```
 
 ### Selecting the Desired Branch
@@ -91,18 +91,18 @@ Once you have cloned the repo, you will want to determine if you want to build t
 
 |Branch|Purpose|
 |----|----|
-|main|Stable JELOS sources|
-|dev|Unstable JELOS sources|
+|main|Stable UnofficialOS sources|
+|uos-dev|Unstable UnofficialOS sources|
 
-To check out our development branch, cd into the project directory and checkout `dev`.
+To check out our development branch, cd into the project directory and checkout `uos-dev`.
 
 ```
 cd distribution
-git checkout dev
+git checkout uos-dev
 ```
 
 ### Building with Docker
-Building JELOS is easy, the fastest and most recommended method is to instruct the build to use Docker, this is only known to work on a Linux system.  To build JELOS with Docker use the table below.
+Building UnofficialOS is easy, the fastest and most recommended method is to instruct the build to use Docker, this is only known to work on a Linux system.  To build UnofficialOS with Docker use the table below.
 
 | Device | Dependency | Docker Command |
 | ---- | ---- | ---- |
@@ -121,7 +121,7 @@ Building JELOS is easy, the fastest and most recommended method is to instruct t
 > Devices that list a dependency require the dependency to be built first as that build will be used as the root of the device you are building.  This will be done automatically by the build tooling when you start a build for your device.
 
 ### Building Manually
-To build JELOS manually, you will need several prerequisite packages installed.
+To build UnofficialOS manually, you will need several prerequisite packages installed.
 
 ```
 sudo apt install gcc make git unzip wget \
@@ -134,7 +134,7 @@ sudo apt install gcc make git unzip wget \
                 qemu-user-binfmt zstd parted imagemagick docker.io
 ```
 
-Next, build the version of JELOS for your device.  See the table above for dependencies.  If you're building for the RG351V, RG351P will be built first to provide the build root dependency.  To execute a build, run `make {device}`
+Next, build the version of UnofficialOS for your device.  See the table above for dependencies.  If you're building for the RG351V, RG351P will be built first to provide the build root dependency.  To execute a build, run `make {device}`
 
 ```
 make RG351V
@@ -147,14 +147,14 @@ DEVICE=RG351V ARCH=aarch64 ./scripts/clean busybox
 DEVICE=RG351V ARCH=aarch64 ./scripts/build busybox
 ```
 
-> Note: Emulation Station package build requires additional steps because its source code located in a separate repository, see instructions inside, [link](https://github.com/JustEnoughLinuxOS/distribution/blob/main/packages/ui/emulationstation/package.mk).
+> Note: Emulation Station package build requires additional steps because its source code located in a separate repository, see instructions inside, [link](https://github.com/RetroGFX/UnofficialOS/blob/main/packages/ui/emulationstation/package.mk).
 
 ### Special env variables
 For development build, you can use the following env variables to customize the image. Some of them can be included in your `.bashrc` startup shell script.
 
 **SSH keys**
 ```
-export LOCAL_SSH_KEYS_FILE=~/.ssh/jelos/authorized_keys
+export LOCAL_SSH_KEYS_FILE=~/.ssh/unofficialos/authorized_keys
 ```
 **WiFi SSID and password**
 ```
@@ -197,12 +197,12 @@ cd sources/emulationstation/emulationstation-098226b/
 # Make your changes to EmulationStation
 vim/emacs/vscode/notepad.exe
 # Make the patch directory
-mkdir -p ../../packages/ui/emulationstation/patches
+mkdir -p ../../../packages/ui/emulationstation/patches
 # Run from the sources dir
-git diff >../../packages/ui/emulationstation/patches/005-mypatch.patch
+git diff >../../../packages/ui/emulationstation/patches/005-mypatch.patch
 ```
 
-After patch is generated, one can rebuild an individual package, see section above. The build system will automatically pick up patch files from `patches` directory. For testing, one can either copy the built binary to the console or burn the whole image on SD card.
+After patch is generated, one can rebuild an individual package, see section above. The build system will automatically pick up patch files from `patches` directory. For testing, one can either copy the built binary to the console or flash the whole image to the SD card.
 
 ### Building an image with your patch
 If you already have a build for your device made using the above process, it's simple to shortcut the build process and create an image to test your changes quickly using the process below.
@@ -210,8 +210,8 @@ If you already have a build for your device made using the above process, it's s
 # Update the package version for a new package, or apply your patch as above.
 vim/emacs/vscode/notepad.exe
 # Export the variables needed to complete your build, we'll assume you are building for the RG503, update the device to match your configuration.
-export OS_VERSION=$(date +%Y%m%d) BUILD_DATE=$(date)
-export PROJECT=Rockchip DEVICE=RG503 ARCH=aarch64
+export DISTRO=UnofficialOS OS_VERSION=$(date +%Y%m%d) BUILD_DATE=$(date)
+export PROJECT=Rockchip ARCH=aarch64 DEVICE=RG503
 # Clean the package you are building.
 ./scripts/clean emulationstation
 # Build the package.
