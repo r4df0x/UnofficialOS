@@ -1,8 +1,8 @@
 ## Licenses
-JELOS is a Linux distribution that is made up of many open-source components.  Components are provided under their respective licenses.  This distribution includes components licensed for non-commercial use only.
+UnofficialOS is a Linux distribution that is made up of many open-source components.  Components are provided under their respective licenses.  This distribution includes components licensed for non-commercial use only.
 
-### JELOS Branding
-JELOS branding and images are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+### UnofficialOS Branding
+UnofficialOS branding and images are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 #### You are free to
 * Share — copy and redistribute the material in any medium or format
@@ -13,8 +13,8 @@ JELOS branding and images are licensed under a [Creative Commons Attribution-Non
 * NonCommercial — You may not use the material for commercial purposes.
 * ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
-### JELOS Software
-Copyright 2021-present Fewtarius
+### UnofficialOS Software
+Copyright 2021-present UnofficialOS
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.

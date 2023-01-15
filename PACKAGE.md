@@ -15,14 +15,14 @@ To control the build behaviour of your package, use variables in the top-down or
 | PKG_VERSION | -       | yes | Version of the packaged software application. If the version is a githash, please use the full githash, not the abbreviated form. |
 | PKG_SHA256  | -       | yes | SHA256 hashsum of the application download file |
 | PKG_ARCH    | any     | no  | Architectures for which the package builds. `any` or a space separated list of `aarch64`, `arm` or `x86_64` |
-| PKG_LICENSE | -       | yes | License of the software application. [Reference](https://github.com/JustEnoughLinuxOS/distribution/tree/main/licenses) |
+| PKG_LICENSE | -       | yes | License of the software application. [Reference](https://github.com/RetroGFX/UnofficialOS/tree/main/licenses) |
 | PKG_SITE    | -       | yes | Site of the software application |
 | PKG_URL     | -       | yes | Address at which the source of the software application can be retrieved |
 | PKG_MAINTAINER | -    | no  | Your name |
 | PKG_DEPENDS_BOOTSTRAP<br>PKG_DEPENDS_HOST   PKG_DEPENDS_INIT   PKG_DEPENDS_TARGET | - | no | A space separated list of name of packages required to build the software application |
 | PKG_SECTION | -       | no  | virtual if the package only defines dependencies |
 | PKG_SHORTDESC | -     | no<br>yes&nbsp;for&nbsp;addons | Short description of the software package |
-| PKG_LONGDESC | -      | yes | Long description of the package including purpose or function within JELOS or Kodi |
+| PKG_LONGDESC | -      | yes | Long description of the package including purpose or function within UnofficialOS or Kodi |
 
 #### Universal Build Option
 | Variable    | Default | Required |Description |
@@ -133,7 +133,7 @@ PKG_BUILD_FLAGS="-parallel"
 ```
 
 ## Functions
-All build steps in the JELOS build system are done by shell function.
+All build steps in the UnofficialOS build system are done by shell function.
 These functions can overwritten in the `package.mk`. But this raises problems, when the build system is updated. To reduce the problem, most function was extended by `pre_` and `post_` scripts, to use instead.
 
 When it is nesseary to replace configure, make and makeinstall, please use `PKG_TOOLCHAIN="manual"`.
@@ -241,7 +241,7 @@ Use `tools/pkgcheck` to verify packages. It detects the following issues:
 
 Issue | Level | Meaning |
 | :--- | :----: | ---- |
-| late&nbsp;binding&nbsp;violation | FAIL | Late binding variables referenced outside of a function - see [late binding](https://github.com/JELOS/JELOS.tv/blob/master/packages/readme.md#late-binding-variable-assignment) |
+| late&nbsp;binding&nbsp;violation | FAIL | Late binding variables referenced outside of a function |
 | duplicate&nbsp;function&nbsp;def | FAIL | Function defined multiple times, only last definition will be used |
 | bad&nbsp;func&nbsp;-&nbsp;missing&nbsp;brace | FAIL | Opening brace (`{`) for function definition should be on same line as the function def, ie. `pre_configure_target() {` |
 | intertwined&nbsp;vars&nbsp;&&nbsp;funcs | WARN | Variable assignments and logic is intertwined with functions - this is cosmetic, but variables and logic should be specified before all functions |

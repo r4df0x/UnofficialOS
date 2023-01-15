@@ -61,16 +61,16 @@ limitations under the License.
 
 ## UnofficialOS Documentation
 * [Home](https://github.com/RetroGFX/UnofficialOS/wiki)
-* [Donating to JELOS](https://github.com/JustEnoughLinuxOS/distribution/wiki/Donating-to-JELOS)
-* [Frequently asked Questions](https://github.com/JustEnoughLinuxOS/distribution/wiki/Frequently-Asked-Questions)
-* [HotKeys](https://github.com/JustEnoughLinuxOS/distribution/wiki/Hotkeys)
-* [Emulators and Game Engines](https://github.com/JustEnoughLinuxOS/distribution/wiki/JELOS-emulators-and-game-engines)
-* [Moonlight Game Streaming](https://github.com/JustEnoughLinuxOS/distribution/wiki/Moonlight-Game-Streaming)
-* [Using Cloud Drives](https://github.com/JustEnoughLinuxOS/distribution/wiki/Using-Cloud-Drives)
-* [Wireguard VPN](https://github.com/JustEnoughLinuxOS/distribution/wiki/WireGuard-VPN)
+* [Donating to UnofficialOS](https://github.com/RetroGFX/UnofficialOS/wiki/Donating-to-UnofficialOS)
+* [Frequently Asked Questions](https://github.com/RetroGFX/UnofficialOS/wiki/Frequently-Asked-Questions)
+* [HotKeys](https://github.com/RetroGFX/UnofficialOS/wiki/Hotkeys)
+* [Emulators and Game Engines](https://github.com/RetroGFX/UnofficialOS/wiki/UnofficialOS-emulators-and-game-engines)
+* [Moonlight Game Streaming](https://github.com/RetroGFX/UnofficialOS/wiki/Moonlight-Game-Streaming)
+* [Using Cloud Drives](https://github.com/RetroGFX/UnofficialOS/wiki/Using-Cloud-Drives)
+* [Wireguard VPN](https://github.com/RetroGFX/UnofficialOS/wiki/WireGuard-VPN)
 
-## Contributing to JELOS
-* [Developing and Building JELOS](https://github.com/JustEnoughLinuxOS/distribution/blob/dev/BUILDING.md)
+## Contributing to UnofficialOS
+* [Developing and Building UnofficialOS](https://github.com/RetroGFX/UnofficialOS/blob/dev/BUILDING.md)
 
 ## Credits
 Like any Linux distribution, this project is not the work of one person.  It is the work of many persons all over the world who have developed the open source bits without which this project could not exist.  Special thanks to JELOS, CoreELEC, LibreELEC, AmberELEC, ArkOS, and to developers and contributors across the handheld community.
