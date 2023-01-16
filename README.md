@@ -63,14 +63,14 @@ limitations under the License.
 * [Home](https://github.com/RetroGFX/UnofficialOS/wiki)
 * [Donating to UnofficialOS](https://github.com/RetroGFX/UnofficialOS/wiki/Donating-to-UnofficialOS)
 * [Frequently Asked Questions](https://github.com/RetroGFX/UnofficialOS/wiki/Frequently-Asked-Questions)
-* [HotKeys](https://github.com/RetroGFX/UnofficialOS/wiki/Hotkeys)
+* [Hotkeys and Button Codes](https://github.com/RetroGFX/UnofficialOS/wiki/Hotkeys-and-Button-Codes)
 * [Emulators and Game Engines](https://github.com/RetroGFX/UnofficialOS/wiki/UnofficialOS-emulators-and-game-engines)
 * [Moonlight Game Streaming](https://github.com/RetroGFX/UnofficialOS/wiki/Moonlight-Game-Streaming)
 * [Using Cloud Drives](https://github.com/RetroGFX/UnofficialOS/wiki/Using-Cloud-Drives)
 * [Wireguard VPN](https://github.com/RetroGFX/UnofficialOS/wiki/WireGuard-VPN)
 
 ## Contributing to UnofficialOS
-* [Developing and Building UnofficialOS](https://github.com/RetroGFX/UnofficialOS/blob/dev/BUILDING.md)
+* [Developing and Building UnofficialOS](https://github.com/RetroGFX/UnofficialOS/blob/main/BUILDING.md)
 
 ## Credits
 Like any Linux distribution, this project is not the work of one person.  It is the work of many persons all over the world who have developed the open source bits without which this project could not exist.  Special thanks to JELOS, CoreELEC, LibreELEC, AmberELEC, ArkOS, and to developers and contributors across the handheld community.
