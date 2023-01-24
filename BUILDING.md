@@ -8,7 +8,7 @@ We have a simple filesystem structure adopted from parent distributions JELOS, C
 
 ```
 .
-├── build.{DEVICE}.{ARCHITECTURE}
+├── build.{DISTRO}-{DEVICE}.{ARCHITECTURE}
 ├── config
 ├── distributions
 ├── Dockerfile
@@ -23,7 +23,7 @@ We have a simple filesystem structure adopted from parent distributions JELOS, C
 └── tools
 ```
 
-**build.{DEVICE}.{ARCHITECTURE}**
+**build.{DISTRO}-{DEVICE}.{ARCHITECTURE}**
 
 Build roots for each device and that devices architecture(s).  For ARM devices UnofficialOS builds and uses a 32bit root for several of the cores used in the 64bit distribution.
 
