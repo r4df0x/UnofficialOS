@@ -1,8 +1,8 @@
 diff --git a/Core/Config.cpp b/Core/Config.cpp
-index 4b75a46c5..051dd20cf 100644
+index 1c10cfa75..d37da8d02 100644
 --- a/Core/Config.cpp
 +++ b/Core/Config.cpp
-@@ -898,6 +898,7 @@ static ConfigSetting graphicsSettings[] = {
+@@ -875,6 +875,7 @@ static ConfigSetting graphicsSettings[] = {
  #if defined(USING_WIN_UI)
  	ConfigSetting("RestartRequired", &g_Config.bRestartRequired, false, false),
  #endif
@@ -11,10 +11,10 @@ index 4b75a46c5..051dd20cf 100644
  	// Most low-performance (and many high performance) mobile GPUs do not support aniso anyway so defaulting to 4 is fine.
  	ConfigSetting("AnisotropyLevel", &g_Config.iAnisotropyLevel, 4, true, true),
 diff --git a/Core/Config.h b/Core/Config.h
-index af20f6289..1eea77626 100644
+index 6ce10c4ee..f4da47693 100644
 --- a/Core/Config.h
 +++ b/Core/Config.h
-@@ -218,6 +218,7 @@ struct Config {
+@@ -222,6 +222,7 @@ struct Config {
  	bool bTexHardwareScaling;
  	int iFpsLimit1;
  	int iFpsLimit2;
@@ -49,7 +49,7 @@ index 342d52262..9cf1e7e5e 100644
  		nextFlipCycles = std::max(lastFlipCycles, nextFlipCycles) + expected;
  	}
 diff --git a/UI/GameSettingsScreen.cpp b/UI/GameSettingsScreen.cpp
-index 080d19e68..dd5d93434 100644
+index 44d019a9a..aaea25786 100644
 --- a/UI/GameSettingsScreen.cpp
 +++ b/UI/GameSettingsScreen.cpp
 @@ -201,6 +201,8 @@ void GameSettingsScreen::CreateViews() {
@@ -61,21 +61,20 @@ index 080d19e68..dd5d93434 100644
  	iAlternateSpeedPercent1_ = g_Config.iFpsLimit1 < 0 ? -1 : (g_Config.iFpsLimit1 * 100) / 60;
  	iAlternateSpeedPercent2_ = g_Config.iFpsLimit2 < 0 ? -1 : (g_Config.iFpsLimit2 * 100) / 60;
  	iAlternateSpeedPercentAnalog_ = (g_Config.iAnalogFpsLimit * 100) / 60;
-@@ -310,7 +312,10 @@ void GameSettingsScreen::CreateViews() {
- 	graphicsSettings->Add(new PopupMultiChoice(&g_Config.iFrameSkipType, gr->T("Frame Skipping Type"), frameSkipType, 0, ARRAY_SIZE(frameSkipType), gr->GetName(), screenManager()));
+@@ -373,6 +375,10 @@ void GameSettingsScreen::CreateViews() {
  	frameSkipAuto_ = graphicsSettings->Add(new CheckBox(&g_Config.bAutoFrameSkip, gr->T("Auto FrameSkip")));
  	frameSkipAuto_->OnClick.Handle(this, &GameSettingsScreen::OnAutoFrameskip);
--
+ 
 +	static const char *maxFps[] = {"Auto", "10", "20", "30", "40", "50", "60", "70", "80"};
 +	maxFps_ = graphicsSettings->Add(new PopupMultiChoice(&maxFpsChoice, gr->T("Force Max FPS (lower helps GoW)"), maxFps, 0, ARRAY_SIZE(maxFps), gr->GetName(), screenManager()));
 +	maxFps_->OnChoice.Handle(this, &GameSettingsScreen::OnForceMaxEmulatedFPS);
-+	
++
  	PopupSliderChoice *altSpeed1 = graphicsSettings->Add(new PopupSliderChoice(&iAlternateSpeedPercent1_, 0, 1000, gr->T("Alternative Speed", "Alternative speed"), 5, screenManager(), gr->T("%, 0:unlimited")));
  	altSpeed1->SetFormat("%i%%");
  	altSpeed1->SetZeroLabel(gr->T("Unlimited"));
-@@ -1337,6 +1342,16 @@ UI::EventReturn GameSettingsScreen::OnDisplayLayoutEditor(UI::EventParams &e) {
+@@ -1286,6 +1292,16 @@ UI::EventReturn GameSettingsScreen::OnFullscreenMultiChange(UI::EventParams &e)
  	return UI::EVENT_DONE;
- };
+ }
  
 +UI::EventReturn GameSettingsScreen::OnForceMaxEmulatedFPS(UI::EventParams &e) {
 +	if (maxFpsChoice > 0) {
@@ -88,13 +87,13 @@ index 080d19e68..dd5d93434 100644
 +}
 +
  UI::EventReturn GameSettingsScreen::OnResolutionChange(UI::EventParams &e) {
- 	if (g_Config.iAndroidHwScale == 1) {
- 		RecreateActivity();
+ 	Reporting::UpdateConfig();
+ 	NativeMessageReceived("gpu_renderResized", "");
 diff --git a/UI/GameSettingsScreen.h b/UI/GameSettingsScreen.h
-index 2fd7d6e59..6e9f1db70 100644
+index 91d146bcd..79046f5d4 100644
 --- a/UI/GameSettingsScreen.h
 +++ b/UI/GameSettingsScreen.h
-@@ -59,6 +59,7 @@ class GameSettingsScreen : public UIDialogScreenWithGameBackground {
+@@ -55,6 +55,7 @@ class GameSettingsScreen : public UIDialogScreenWithGameBackground {
  	UI::Choice *displayEditor_;
  	UI::Choice *backgroundChoice_ = nullptr;
  	UI::PopupMultiChoice *resolutionChoice_;
@@ -102,15 +101,15 @@ index 2fd7d6e59..6e9f1db70 100644
  	UI::CheckBox *frameSkipAuto_;
  	SettingInfoMessage *settingInfo_;
  	UI::Choice *clearSearchChoice_;
-@@ -107,6 +108,7 @@ class GameSettingsScreen : public UIDialogScreenWithGameBackground {
+@@ -98,6 +99,7 @@ class GameSettingsScreen : public UIDialogScreenWithGameBackground {
+ 	UI::EventReturn OnFullscreenChange(UI::EventParams &e);
  	UI::EventReturn OnFullscreenMultiChange(UI::EventParams &e);
- 	UI::EventReturn OnDisplayLayoutEditor(UI::EventParams &e);
  	UI::EventReturn OnResolutionChange(UI::EventParams &e);
 +	UI::EventReturn OnForceMaxEmulatedFPS(UI::EventParams &e);
- 	UI::EventReturn OnHwScaleChange(UI::EventParams &e);
  	UI::EventReturn OnRestoreDefaultSettings(UI::EventParams &e);
  	UI::EventReturn OnRenderingMode(UI::EventParams &e);
-@@ -135,6 +137,7 @@ class GameSettingsScreen : public UIDialogScreenWithGameBackground {
+ 	UI::EventReturn OnRenderingBackend(UI::EventParams &e);
+@@ -125,6 +127,7 @@ class GameSettingsScreen : public UIDialogScreenWithGameBackground {
  	UI::EventReturn OnClearSearchFilter(UI::EventParams &e);
  
  	// Temporaries to convert setting types, cache enabled, etc.
