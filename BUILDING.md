@@ -97,7 +97,7 @@ Once you have cloned the repo, you will want to determine if you want to build t
 To check out our development branch, cd into the project directory and checkout `uos-dev`.
 
 ```
-cd distribution
+cd UnofficialOS
 git checkout uos-dev
 ```
 
