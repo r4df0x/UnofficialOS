@@ -20,7 +20,7 @@
 ################################################################################
 
 PKG_NAME="stella"
-PKG_VERSION="d05957510a33cdd96d667aa39b092345ae8e9843"
+PKG_VERSION="bbbaced452be598a74b90ade2dbb76831338b422"
 PKG_REV="1"
 PKG_LICENSE="GPL2"
 PKG_SITE="https://github.com/stella-emu/stella"
