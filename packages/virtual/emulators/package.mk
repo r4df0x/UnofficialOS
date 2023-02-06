@@ -3,7 +3,7 @@
 
 PKG_NAME="emulators"
 PKG_LICENSE="Apache-2.0"
-PKG_SITE="www.jelos.org"
+PKG_SITE="unofficialos.org"
 PKG_SECTION="virtual"
 PKG_LONGDESC="Emulation metapackage."
 
