@@ -6,7 +6,7 @@
 PKG_NAME="u-boot"
 PKG_ARCH="arm aarch64"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/JustEnoughLinuxOS"
+PKG_SITE="https://github.com/RetroGFX"
 PKG_DEPENDS_TARGET="toolchain swig:host rkbin"
 PKG_LONGDESC="Rockchip U-Boot is a bootloader for embedded systems."
 GET_HANDLER_SUPPORT="git"
