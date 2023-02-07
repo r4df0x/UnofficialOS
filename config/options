@@ -21,7 +21,7 @@ DISTRO_DIR="${ROOT}/distributions"
 PROJECT_DIR="${ROOT}/projects"
 
 # determines DISTRO, if not forced by user
-DISTRO="${DISTRO:-JELOS}"
+DISTRO="${DISTRO:-UnofficialOS}"
 
 # determines PROJECT, if not forced by user
 PROJECT="${PROJECT:-Rockchip}"
@@ -84,18 +84,18 @@ VERBOSE="${VERBOSE:-yes}"
 CCACHE_CACHE_SIZE="20G"
 
 # read local persistent options from $ROOT if available
-if [ -f "${ROOT}/.jelos/options" ]; then
-  . "${ROOT}/.jelos/options"
+if [ -f "${ROOT}/.unofficialos/options" ]; then
+  . "${ROOT}/.unofficialos/options"
 fi
 
 # read global persistent options from $HOME if available
-if [ -f "${HOME}/.jelos/options" ]; then
-  . "${HOME}/.jelos/options"
+if [ -f "${HOME}/.unofficialos/options" ]; then
+  . "${HOME}/.unofficialos/options"
 fi
 
 # read global persistent options from ${DOCKER_WORK_DIR} if available
-if [ -f "${DOCKER_WORK_DIR}/.jelos/options" ]; then
-  . "${DOCKER_WORK_DIR}/.jelos/options"
+if [ -f "${DOCKER_WORK_DIR}/.unofficialos/options" ]; then
+  . "${DOCKER_WORK_DIR}/.unofficialos/options"
 fi
 
 # overwrite OEM_SUPPORT via commandline

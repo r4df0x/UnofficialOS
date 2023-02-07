@@ -20,7 +20,7 @@
 ################################################################################
 
 PKG_NAME="core-info"
-PKG_VERSION="3d9b20d3711c8c2827246e3b48a503973192f080"
+PKG_VERSION="a8e9ddd9d5cb50d35d9fa8655a0867d15c64e133"
 PKG_LICENSE="GPL"
 PKG_SITE="https://github.com/libretro/libretro-core-info"
 PKG_URL="https://github.com/libretro/libretro-core-info/archive/${PKG_VERSION}.tar.gz"
@@ -30,7 +30,7 @@ PKG_TOOLCHAIN="manual"
 
 makeinstall_target() {
   mkdir -p ${INSTALL}/usr/lib/libretro
-  rename.ul -v mednafen beetle ${PKG_BUILD}/*.info
+  ${TOOLCHAIN}/bin/rename -v mednafen beetle ${PKG_BUILD}/*.info
   cp ${PKG_BUILD}/*.info ${INSTALL}/usr/lib/libretro/
   cp ${PKG_BUILD}/pcsx_rearmed_libretro.info ${INSTALL}/usr/lib/libretro/pcsx_rearmed32_libretro.info
   cp ${PKG_BUILD}/flycast_libretro.info ${INSTALL}/usr/lib/libretro/flycast_libretro_libretro.info

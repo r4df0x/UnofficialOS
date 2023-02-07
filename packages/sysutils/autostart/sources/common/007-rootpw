@@ -17,6 +17,6 @@ then
 fi
 
 # Randomly generate the root password on startup
-ROOTPASS=$(openssl rand -base64 10 2>/dev/null | sed "s#==##g")
+ROOTPASS=$(tr -dc 'A-HJKMNP-Za-hkmnp-z1-9!#$%&*+?@_' </dev/urandom | head -c 6)
 
 /usr/bin/setrootpass "${ROOTPASS}"

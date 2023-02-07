@@ -1,6 +1,6 @@
-<img src="https://raw.githubusercontent.com/RetroGFX/UnofficialOS/main/distributions/UnofficialOS/logos/unofficialos-logo.png" width=192 align='middle'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Latest Version](https://img.shields.io/github/release/RetroGFX/UnofficialOS.svg?color=5998FF&label=latest%20version&style=flat-square)](https://github.com/RetroGFX/UnofficialOS/releases/latest) [![Activity](https://img.shields.io/github/commit-activity/m/RetroGFX/UnofficialOS?color=5998FF&style=flat-square)](https://github.com/RetroGFX/UnofficialOS/commits) [![Pull Requests](https://img.shields.io/github/issues-pr-closed/RetroGFX/UnofficialOS?color=5998FF&style=flat-square)](https://github.com/RetroGFX/UnofficialOS/pulls)
+<img src="https://raw.githubusercontent.com/RetroGFX/UnofficialOS/main/distributions/UnofficialOS/logos/unofficialos-logo.png" width=192 align='middle'>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[![Latest Version](https://img.shields.io/github/release/RetroGFX/UnofficialOS.svg?color=5998FF&label=latest%20version&style=flat-square)](https://github.com/RetroGFX/UnofficialOS/releases/latest) [![Activity](https://img.shields.io/github/commit-activity/m/RetroGFX/UnofficialOS?color=5998FF&style=flat-square)](https://github.com/RetroGFX/UnofficialOS/commits) [![Pull Requests](https://img.shields.io/github/issues-pr-closed/RetroGFX/UnofficialOS?color=5998FF&style=flat-square)](https://github.com/RetroGFX/UnofficialOS/pulls) [![Discord Server](https://img.shields.io/discord/1071988151750508544?color=5998FF&label=Discord&style=flat-square)](https://discord.gg/zGjXqGNMzb)
 #
-UnofficialOS (uOS) is a community driven effort to provide updated builds for the [Just Enough Linux Operating System (JELOS)](https://github.com/JustEnoughLinuxOS), a community developed Linux distribution for handheld gaming devices.
+UnofficialOS (uOS) is a community developed Linux distribution for handheld gaming devices. It was originally based on and is forked from [Just Enough Linux Operating System (JELOS)](https://github.com/JustEnoughLinuxOS).
 
 # Installation
 
@@ -28,12 +28,12 @@ UnofficialOS (uOS) is a community driven effort to provide updated builds for th
   * Rewind: L2
   * Fast-Forward Toggle: R2
 
-# JELOS
+# UnofficialOS
 ## Licenses
-JELOS is a Linux distribution that is made up of many open-source components.  Components are provided under their respective licenses.  This distribution includes components licensed for non-commercial use only.
+UnofficialOS is a Linux distribution that is made up of many open-source components.  Components are provided under their respective licenses.  This distribution includes components licensed for non-commercial use only.
 
-### JELOS Branding
-JELOS branding and images are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
+### UnofficialOS Branding
+UnofficialOS branding and images are licensed under a [Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International License](https://creativecommons.org/licenses/by-nc-sa/4.0/).
 
 #### You are free to
 * Share — copy and redistribute the material in any medium or format
@@ -44,8 +44,8 @@ JELOS branding and images are licensed under a [Creative Commons Attribution-Non
 * NonCommercial — You may not use the material for commercial purposes.
 * ShareAlike — If you remix, transform, or build upon the material, you must distribute your contributions under the same license as the original.
 
-### JELOS Software
-Copyright 2021-present Fewtarius
+### UnofficialOS Software
+Copyright 2022-present 
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
@@ -59,19 +59,19 @@ WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 See the License for the specific language governing permissions and
 limitations under the License.
 
-## JELOS Documentation
-* [Home](https://github.com/JustEnoughLinuxOS/distribution/wiki)
-* [Donating to JELOS](https://github.com/JustEnoughLinuxOS/distribution/wiki/Donating-to-JELOS)
-* [Frequently asked Questions](https://github.com/JustEnoughLinuxOS/distribution/wiki/Frequently-Asked-Questions)
-* [HotKeys](https://github.com/JustEnoughLinuxOS/distribution/wiki/Hotkeys)
-* [Emulators and Game Engines](https://github.com/JustEnoughLinuxOS/distribution/wiki/JELOS-emulators-and-game-engines)
-* [Moonlight Game Streaming](https://github.com/JustEnoughLinuxOS/distribution/wiki/Moonlight-Game-Streaming)
-* [Using Cloud Drives](https://github.com/JustEnoughLinuxOS/distribution/wiki/Using-Cloud-Drives)
-* [Wireguard VPN](https://github.com/JustEnoughLinuxOS/distribution/wiki/WireGuard-VPN)
+## UnofficialOS Documentation
+* [Home](https://github.com/RetroGFX/UnofficialOS/wiki)
+* [Donating to UnofficialOS](https://github.com/RetroGFX/UnofficialOS/wiki/Donating-to-UnofficialOS)
+* [Frequently Asked Questions](https://github.com/RetroGFX/UnofficialOS/wiki/Frequently-Asked-Questions)
+* [Hotkeys and Button Codes](https://github.com/RetroGFX/UnofficialOS/wiki/Hotkeys-and-Button-Codes)
+* [Emulators and Game Engines](https://github.com/RetroGFX/UnofficialOS/wiki/UnofficialOS-emulators-and-game-engines)
+* [Moonlight Game Streaming](https://github.com/RetroGFX/UnofficialOS/wiki/Moonlight-Game-Streaming)
+* [Using Cloud Drives](https://github.com/RetroGFX/UnofficialOS/wiki/Using-Cloud-Drives)
+* [Wireguard VPN](https://github.com/RetroGFX/UnofficialOS/wiki/WireGuard-VPN)
 
-## Contributing to JELOS
-* [Developing and Building JELOS](https://github.com/JustEnoughLinuxOS/distribution/blob/dev/BUILDING.md)
+## Contributing to UnofficialOS
+* [Developing and Building UnofficialOS](https://github.com/RetroGFX/UnofficialOS/blob/main/BUILDING.md)
 
 ## Credits
-Like any Linux distribution, this project is not the work of one person.  It is the work of many persons all over the world who have developed the open source bits without which this project could not exist.  Special thanks to JELOS, CoreELEC, LibreELEC, and to developers and contributors across the ARM handheld community.
+Like any Linux distribution, this project is not the work of one person.  It is the work of many persons all over the world who have developed the open source bits without which this project could not exist.  Special thanks to JELOS, CoreELEC, LibreELEC, AmberELEC, ArkOS, and to developers and contributors across the handheld community.
 

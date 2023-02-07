@@ -4,7 +4,7 @@
 PKG_NAME="plymouth-lite"
 PKG_VERSION="92b3d5b"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/JustEnoughLinuxOS/plymouth-lite"
+PKG_SITE="https://github.com/RetroGFX/plymouth-lite"
 PKG_URL="${PKG_SITE}.git"
 PKG_DEPENDS_INIT="toolchain ccache:init libpng"
 PKG_DEPENDS_TARGET="toolchain libpng"

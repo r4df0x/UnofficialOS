@@ -2,7 +2,7 @@
 # Copyright (C) 2019 Trond Haugland (trondah@gmail.com)
 
 PKG_NAME="mame"
-PKG_VERSION="85581d60bb24fea14542b154aef2c7b624f5b60f"
+PKG_VERSION="f7761a9902d59030882c58d4482446196e748c50"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/libretro/mame"
@@ -11,7 +11,7 @@ PKG_DEPENDS_TARGET="toolchain zlib flac sqlite expat"
 PKG_SECTION="libretro"
 PKG_SHORTDESC="MAME - Multiple Arcade Machine Emulator"
 PKG_TOOLCHAIN="make"
-PKG_BUILD_FLAGS="-lto"
+PKG_BUILD_FLAGS="-lto +pic"
 
 case ${TARGET_ARCH} in
   arm|aarch64)

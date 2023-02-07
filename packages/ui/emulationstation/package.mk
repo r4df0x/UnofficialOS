@@ -8,7 +8,7 @@ PKG_GIT_CLONE_BRANCH="main"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/JustEnoughLinuxOS/emulationstation"
+PKG_SITE="https://github.com/RetroGFX/emulationstation"
 PKG_URL="${PKG_SITE}.git"
 PKG_DEPENDS_TARGET="boost toolchain SDL2 freetype curl freeimage bash rapidjson SDL2_mixer fping p7zip alsa vlc splash"
 PKG_NEED_UNPACK="busybox"
@@ -42,7 +42,7 @@ PKG_CMAKE_OPTS_TARGET+=" -DENABLE_EMUELEC=1 -DDISABLE_KODI=1 -DENABLE_FILEMANAGE
 # One time setup:
 # ---------------
 # cd ~
-# git clone https://github.com/JustEnoughLinuxOS/emulationstation.git
+# git clone https://github.com/RetroGFX/emulationstation.git
 # cd emulationstation
 # git submodule update --init
 #
@@ -56,7 +56,7 @@ PKG_CMAKE_OPTS_TARGET+=" -DENABLE_EMUELEC=1 -DDISABLE_KODI=1 -DENABLE_FILEMANAGE
 #
 # Run from the device:
 # --------------------
-# Copy ./emulationstation binary found in build.JELOS-<device>.aarch64/emulationstation-*/.install_pkg/usr/bin/
+# Copy ./emulationstation binary found in build.UnofficialOS-<device>.aarch64/emulationstation-*/.install_pkg/usr/bin/
 # Via ssh, run emulationstation with
 # systemctl stop emustation
 # chmod +x ./emulationstation

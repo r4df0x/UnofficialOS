@@ -19,7 +19,7 @@
 ################################################################################
 
 PKG_NAME="ppsspp"
-PKG_VERSION="d4f5bff360afb335259fcc8d8e10f6dff255600b"
+PKG_VERSION="ec5afb2d8d90f7d39fef405754c62d79f9af3fcc"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/hrydgard/ppsspp"
 PKG_URL="https://github.com/hrydgard/ppsspp.git"
@@ -88,7 +88,8 @@ PKG_CMAKE_OPTS_TARGET+="${PKG_CMAKE_OPTS_TARGET} \
                         -DUNITTEST=OFF \
                         -DSIMULATOR=OFF \
                         -DHEADLESS=OFF \
-                        -DUSE_DISCORD=OFF"
+                        -DUSE_DISCORD=OFF \
+                        -DUSE_ARMIPS=OFF"
 
 pre_make_target() {
   # fix cross compiling

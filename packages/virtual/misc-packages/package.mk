@@ -6,7 +6,7 @@
 PKG_NAME="misc-packages"
 PKG_VERSION=""
 PKG_LICENSE="GPL"
-PKG_SITE="https://www.jelos.org"
+PKG_SITE="unofficialos.org"
 PKG_URL=""
 PKG_SECTION="virtual"
 PKG_LONGDESC="misc-packages: Metapackage for miscellaneous packages"

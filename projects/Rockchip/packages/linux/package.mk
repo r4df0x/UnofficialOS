@@ -7,7 +7,7 @@
 
 PKG_NAME="linux"
 PKG_LICENSE="GPL"
-PKG_SITE="https://github.com/JustEnoughLinuxOS"
+PKG_SITE="https://github.com/RetroGFX"
 PKG_DEPENDS_HOST="ccache:host rsync:host openssl:host"
 PKG_DEPENDS_TARGET="toolchain linux:host cpio:host kmod:host xz:host wireless-regdb keyutils util-linux binutils ncurses openssl:host ${KERNEL_EXTRA_DEPENDS_TARGET}"
 PKG_DEPENDS_INIT="toolchain"
@@ -30,7 +30,7 @@ case ${DEVICE} in
   ;;
   RG353P|RG503)
     PKG_URL="${PKG_SITE}/rk356x-kernel.git"
-    PKG_VERSION="0ab76df23"
+    PKG_VERSION="364fa42"
     GET_HANDLER_SUPPORT="git"
     PKG_GIT_CLONE_BRANCH="main"
   ;;

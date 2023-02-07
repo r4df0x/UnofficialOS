@@ -23,7 +23,7 @@ distclean:
 src-pkg:
 	tar cvJf sources.tar.xz sources .stamps
 
-world: x86_64 RK3566 RK3399
+world: x86_64 RK3566 RK3399 RK3326
 
 x86_64: handheld
 
@@ -78,7 +78,7 @@ package-clean:
 # For example: make docker-RG552 will use docker to call: make RG552
 # All variables are scoped to docker-* commands to prevent weird collisions/behavior with non-docker commands
 
-docker-%: DOCKER_IMAGE := "justenoughlinuxos/jelos-build:latest"
+docker-%: DOCKER_IMAGE := "unofficialos/unofficialos-build:latest"
 
 # DOCKER_WORK_DIR is the directory in the Docker image - it is set to /work by default
 #   Anytime this directory changes, you must run `make clean` similarly to moving the distribution directory
@@ -126,7 +126,7 @@ docker-image-pull:
 	$(SUDO) $(DOCKER_CMD) pull $(DOCKER_IMAGE)
 
 # Command: pushes the latest Docker image to dockerhub.  This is *not* needed to build. It updates the latest build image in dockerhub for everyone.
-# Only JELOS admins in dockerhub can do this.
+# Only UnofficialOS admins in dockerhub can do this.
 #
 # You must login with: docker login --username <username> and provide either a password or token (from user settings -> security in dockerhub) before this will work.
 docker-image-push:

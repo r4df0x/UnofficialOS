@@ -2,7 +2,7 @@
 # Copyright (C) 2019-present Shanti Gilbert (https://github.com/shantigilbert)
 
 PKG_NAME="mupen64plussa-video-gliden64"
-PKG_VERSION="7a182fbf0f7ca7527cff05e7eec292ca67ab4e48"
+PKG_VERSION="263a7bd2ca81759ece98209bd282a6c1173a129f"
 PKG_ARCH="aarch64"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/gonetz/GLideN64"
