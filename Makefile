@@ -126,7 +126,7 @@ docker-image-pull:
 	$(SUDO) $(DOCKER_CMD) pull $(DOCKER_IMAGE)
 
 # Command: pushes the latest Docker image to dockerhub.  This is *not* needed to build. It updates the latest build image in dockerhub for everyone.
-# Only JELOS admins in dockerhub can do this.
+# Only UnofficialOS admins in dockerhub can do this.
 #
 # You must login with: docker login --username <username> and provide either a password or token (from user settings -> security in dockerhub) before this will work.
 docker-image-push:
