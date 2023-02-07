@@ -3,7 +3,7 @@
 # Copyright (C) 2020-present Fewtarius
 
 ###
-### Simple script to build JELOS
+### Simple script to build UnofficialOS
 ###
 
 if [ !"${ARCH}" == true ]
@@ -59,7 +59,7 @@ fi
 
 # Clean OS specific packages.
 PKG_CLEAN="${PKG_CLEAN} system-utils plymouth-lite initramfs busybox linux grub u-boot SDL2 modules \
-           emulationstation retroarch lib32 autostart splash jelos"
+           emulationstation retroarch lib32 autostart splash unofficialos"
 
 if [ ! -n "${DIRTY}" ]
 then

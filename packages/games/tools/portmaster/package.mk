@@ -8,7 +8,7 @@ PKG_ARCH="aarch64"
 PKG_URL="https://github.com/christianhaitian/PortMaster/raw/main/PortMaster.zip"
 PKG_PRIORITY="optional"
 PKG_SECTION="tools"
-PKG_SHORTDESC="A simple tool that allows you to download various game ports that are available for Jelos"
+PKG_SHORTDESC="A simple tool that allows you to download various game ports that are available for UnofficialOS"
 PKG_TOOLCHAIN="manual"
 
 case ${DEVICE} in

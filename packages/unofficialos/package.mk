@@ -1,15 +1,15 @@
 # SPDX-License-Identifier: Apache-2.0
 # Copyright (C) 2020-present Fewtarius
 
-PKG_NAME="jelos"
+PKG_NAME="unofficialos"
 PKG_VERSION="$(date +%Y%m%d)"
 PKG_ARCH="any"
 PKG_LICENSE="apache2"
 PKG_SITE=""
 PKG_URL=""
 PKG_DEPENDS_TARGET="toolchain"
-PKG_SHORTDESC="JELOS Meta Package"
-PKG_LONGDESC="JELOS Meta Package"
+PKG_SHORTDESC="UnofficialOS Meta Package"
+PKG_LONGDESC="UnofficialOS Meta Package"
 PKG_IS_ADDON="no"
 PKG_AUTORECONF="no"
 PKG_TOOLCHAIN="make"
@@ -94,7 +94,7 @@ EOF
 }
 
 post_install() {
-  ln -sf jelos.target ${INSTALL}/usr/lib/systemd/system/default.target
+  ln -sf unofficialos.target ${INSTALL}/usr/lib/systemd/system/default.target
 
   mkdir -p ${INSTALL}/etc/profile.d
   cp ${PROJECT_DIR}/${PROJECT}/devices/${DEVICE}/device.config ${INSTALL}/etc/profile.d/01-deviceconfig
@@ -117,10 +117,10 @@ EOF
 
   cp ${PKG_DIR}/sources/scripts/* ${INSTALL}/usr/bin
   chmod 0755 ${INSTALL}/usr/bin/* ||:
-  enable_service jelos-automount.service
+  enable_service unofficialos-automount.service
 
   ### Fix and migrate to autostart package
-  enable_service jelos-autostart.service
+  enable_service unofficialos-autostart.service
 
   if [ -d "${PKG_DIR}/sources/asound/${DEVICE}" ]
   then

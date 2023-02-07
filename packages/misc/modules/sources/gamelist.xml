@@ -6,7 +6,7 @@
 		<name>351Files</name>
 		<desc>Single panel file manager</desc>
 		<developer>Tardigrade</developer>
-		<publisher>JELOS</publisher>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -18,8 +18,8 @@
 		<path>./cloud_backup.sh</path>
 		<name>Cloud Backup</name>
 		<desc>Backup your saves to a cloud drive.</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2022</releasedate>
 		<genre>Script</genre>
@@ -31,8 +31,8 @@
 		<path>./cloud_restore.sh</path>
 		<name>Cloud Restore</name>
 		<desc>Restores your saves from a cloud drive.</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2022</releasedate>
 		<genre>Script</genre>
@@ -41,16 +41,16 @@
 	</game>
 
         <game>
-                <path>./Install JELOS.sh</path>
-                <name>Install JELOS</name>
-                <desc>Install JELOS to local storage</desc>
-                <developer>JELOS</developer>
-                <publisher>JELOS</publisher>
+                <path>./Install UnofficialOS.sh</path>
+                <name>Install UnofficialOS</name>
+                <desc>Install UnofficialOS to local storage</desc>
+                <developer>UnofficialOS</developer>
+                <publisher>UnofficialOS</publisher>
                 <rating>1.0</rating>
                 <releasedate>2022</releasedate>
                 <genre>Script</genre>
-                <thumbnail>./downloaded_images/jelos-thumb.png</thumbnail>
-                <image>./downloaded_images/jelos-image.png</image>
+                <thumbnail>./downloaded_images/unofficialos-thumb.png</thumbnail>
+                <image>./downloaded_images/unofficialos-image.png</image>
         </game>
 	
 	<game>
@@ -58,7 +58,7 @@
 		<name>PortMaster</name>
 		<desc>Game port installer</desc>
 		<developer>christianhaitian</developer>
-		<publisher>Jelos</publisher>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -70,8 +70,8 @@
 		<path>./Start PPSSPP.sh</path>
 		<name>Start PPSSPP</name>
 		<desc>Run the PPSSPP emulator without starting a game.</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -83,8 +83,8 @@
 		<path>./Start ScummVM.sh</path>
 		<name>Start ScummVM</name>
 		<desc>Run the ScummVM emulator without starting a game.</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -96,8 +96,8 @@
 		<path>./Start 32bit Retroarch.sh</path>
 		<name>Start 32bit RetroArch</name>
 		<desc>Run 32bit RetroArch</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -109,8 +109,8 @@
 		<path>./Start 64bit Retroarch.sh</path>
 		<name>Start 64bit RetroArch</name>
 		<desc>Run 64bit RetroArch</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -122,8 +122,8 @@
 		<path>./Remove ._ Files.sh</path>
 		<name>Run Remove ._ Files</name>
 		<desc>Removes hidden ._ files created by the MacOS filesystem</desc>
-		<developer>JELOS</developer>
-		<publisher>JELOS</publisher>
+		<developer>UnofficialOS</developer>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2021</releasedate>
 		<genre>Script</genre>
@@ -136,7 +136,7 @@
 		<name>ThemeMaster</name>
 		<desc>Theme installer</desc>
 		<developer>JohnIrvine1433</developer>
-		<publisher>Jelos</publisher>
+		<publisher>UnofficialOS</publisher>
 		<rating>1.0</rating>
 		<releasedate>2022</releasedate>
 		<genre>Script</genre>
