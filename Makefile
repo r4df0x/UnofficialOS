@@ -61,8 +61,8 @@ RG351MP:
 	DEVICE_ROOT=RG351P PROJECT=Rockchip DEVICE=RG351MP ARCH=aarch64 ./scripts/build_distro
 
 RGB20S:
-	DEVICE_ROOT=RGB20S PROJECT=Rockchip DEVICE=RGB20S ARCH=arm ./scripts/build_distro
-	DEVICE_ROOT=RGB20S PROJECT=Rockchip DEVICE=RGB20S ARCH=aarch64 ./scripts/build_distro
+	DEVICE_ROOT=RG351P PROJECT=Rockchip DEVICE=RGB20S ARCH=arm ./scripts/build_distro
+	DEVICE_ROOT=RG351P PROJECT=Rockchip DEVICE=RGB20S ARCH=aarch64 ./scripts/build_distro
 	
 update:
 	PROJECT=Rockchip DEVICE=RG552 ARCH=aarch64 ./scripts/update_packages
