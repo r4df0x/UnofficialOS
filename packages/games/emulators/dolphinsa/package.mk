@@ -77,7 +77,7 @@ makeinstall_target() {
 
 post_install() {
     case ${DEVICE} in
-      RG503|RG353P)
+      RG503|RG353P|RG353V2)
         DOLPHIN_PLATFORM="drm"
       ;;
       *)
