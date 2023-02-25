@@ -106,18 +106,18 @@ Building UnofficialOS is easy, the fastest and most recommended method is to ins
 
 | Device | Dependency | Docker Command |
 | ---- | ---- | ---- |
-|RG552||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG552```|
-|RG503||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG503```|
-|RG353P|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
-|RG353V|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
-|RG353V2|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353V2```|
-|RG353M|RG503|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG353P```|
-|RG351P||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG351P```|
-|RG351V|RG351P|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG351V```|
-|RG351MP|RG351P|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RG351MP```|
-|RGB20S|RG351P|```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-RGB20S```|
-|handheld||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-handheld```|
-|ALL DEVICES||```PYTHON_EGG_CACHE="`pwd`/.egg_cache" make docker-world```|
+|RG552||```make docker-RG552```|
+|RG503||```make docker-RG503```|
+|RG353P|RG503|```make docker-RG353P```|
+|RG353V|RG503|```make docker-RG353P```|
+|RG353V2|RG503|```make docker-RG353V2```|
+|RG353M|RG503|```make docker-RG353P```|
+|RG351P||```make docker-RG351P```|
+|RG351V|RG351P|```make docker-RG351V```|
+|RG351MP|RG351P|```make docker-RG351MP```|
+|RGB20S|RG351P|```make docker-RGB20S```|
+|handheld||```make docker-handheld```|
+|ALL DEVICES||```make docker-world```|
 
 > Devices that list a dependency require the dependency to be built first as that build will be used as the root of the device you are building.  This will be done automatically by the build tooling when you start a build for your device.
 
