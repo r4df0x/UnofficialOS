@@ -43,7 +43,7 @@ configure_target() {
 
 make_target() {
 #  sed -i 's/ENABLE_AGS/\/\/ENABLE_AGS/g' backends/platform/libretro/build/config.hd
-  make -C ${PKG_BUILD}/backends/platform/libretro CXXFLAGS="${CXXFLAGS} -DHAVE_POSIX_MEMALIGN=1"
+  make -C ${PKG_BUILD}/backends/platform/libretro CXXFLAGS="${CXXFLAGS} -DHAVE_POSIX_MEMALIGN=1 -fPIC"
   cd ${PKG_BUILD}/backends/platform/libretro/scripts
   ./bundle_datafiles.sh ${PKG_BUILD} ${PKG_BUILD} bundle
 }
