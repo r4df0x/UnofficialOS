@@ -28,7 +28,7 @@ case ${DEVICE} in
     PKG_VERSION="6.0.11"
     PKG_URL="https://www.kernel.org/pub/linux/kernel/v6.x/${PKG_NAME}-${PKG_VERSION}.tar.xz"
   ;;
-  RG353P|RG353V2|RG503)
+  RG353P|RG503)
     PKG_URL="${PKG_SITE}/rk356x-kernel.git"
     PKG_VERSION="9d46ae8"
     GET_HANDLER_SUPPORT="git"

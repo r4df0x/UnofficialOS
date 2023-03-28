@@ -32,7 +32,7 @@ pre_configure_target() {
     RG552)
       PKG_MAKE_OPTS_TARGET=" platform=RK3399"
     ;;
-    RG503|RG353P|RG353V2)
+    RG503|RG353P)
       PKG_MAKE_OPTS_TARGET=" platform=RK3566"
     ;;
   esac

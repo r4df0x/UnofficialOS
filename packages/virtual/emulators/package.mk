@@ -40,7 +40,7 @@ case "${DEVICE}" in
   RG552)
     PKG_DEPENDS_TARGET+=" bsnes-hd duckstationsa dolphinsa dolphin slang-shaders beetle-saturn drastic"
   ;;
-  RG503|RG353P|RG353V2)
+  RG503|RG353P)
     PKG_DEPENDS_TARGET+=" duckstationsa common-shaders glsl-shaders drastic dolphinsa"
   ;;
   handheld)
