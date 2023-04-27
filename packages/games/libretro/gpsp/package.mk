@@ -21,7 +21,7 @@
 ################################################################################
 
 PKG_NAME="gpsp"
-PKG_VERSION="2fcbdc1d178735992ef6ca41134e299661bf7169"
+PKG_VERSION="6eb1071dec2e1bc8aab8fd28fbb3724a900a18e5"
 PKG_REV="1"
 PKG_ARCH="arm aarch64"
 PKG_LICENSE="GPLv2"

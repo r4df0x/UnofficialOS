@@ -19,11 +19,11 @@
 ################################################################################
 
 PKG_NAME="ppsspp"
-PKG_VERSION="ec5afb2d8d90f7d39fef405754c62d79f9af3fcc"
+PKG_VERSION="74f9b55669e53b59ad942ff707f973a55d54c32b"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/hrydgard/ppsspp"
 PKG_URL="https://github.com/hrydgard/ppsspp.git"
-PKG_DEPENDS_TARGET="toolchain SDL2 ffmpeg libzip"
+PKG_DEPENDS_TARGET="toolchain SDL2 ffmpeg libzip zstd"
 PKG_LONGDESC="A PSP emulator for Android, Windows, Mac, Linux and Blackberry 10, written in C++."
 GET_HANDLER_SUPPORT="git"
 
