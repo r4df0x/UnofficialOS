@@ -19,30 +19,23 @@
 ################################################################################
 
 PKG_NAME="scummvm"
-PKG_VERSION="58e96a8755b536307ebd7c79f15c7bfc4bfbf769"
+PKG_VERSION="2af2e07e2f4eca121481fce92a18ffb5b0c33045"
 PKG_REV="1"
 PKG_ARCH="any"
 PKG_LICENSE="GPLv2"
 PKG_SITE="https://github.com/scummvm/scummvm"
-PKG_URL="${PKG_SITE}/archive/$PKG_VERSION.tar.gz"
+PKG_URL="${PKG_SITE}.git"
 PKG_DEPENDS_TARGET="toolchain"
 PKG_PRIORITY="optional"
 PKG_SECTION="libretro"
 PKG_SHORTDESC="ScummVM with libretro backend."
 PKG_LONGDESC="ScummVM is a program which allows you to run certain classic graphical point-and-click adventure games, provided you already have their data files."
+GET_HANDLER_SUPPORT="git"
 
 PKG_IS_ADDON="no"
 PKG_TOOLCHAIN="make"
 PKG_AUTORECONF="no"
 PKG_BUILD_FLAGS="-lto"
-
-pre_configure_target() {
-  cd ..
-  rm -rf .$TARGET_NAME
-  cd ${PKG_BUILD}/backends/platform
-  rm -rf libretro
-  git clone https://github.com/diablodiab/scummvm-libretro-backend libretro
-}
 
 configure_target() {
   :
@@ -50,14 +43,14 @@ configure_target() {
 
 make_target() {
 #  sed -i 's/ENABLE_AGS/\/\/ENABLE_AGS/g' backends/platform/libretro/build/config.hd
-  make -C ${PKG_BUILD}/backends/platform/libretro/build CXXFLAGS="$CXXFLAGS -DHAVE_POSIX_MEMALIGN=1"
-  cd ${PKG_BUILD}/backends/platform/libretro/aux-data
-  ./bundle_aux_data.bash
+  make -C ${PKG_BUILD}/backends/platform/libretro CXXFLAGS="${CXXFLAGS} -DHAVE_POSIX_MEMALIGN=1 -fPIC"
+  cd ${PKG_BUILD}/backends/platform/libretro/scripts
+  ./bundle_datafiles.sh ${PKG_BUILD} ${PKG_BUILD} bundle
 }
 
 makeinstall_target() {
-  mkdir -p $INSTALL/usr/lib/libretro
-  cp ${PKG_BUILD}/backends/platform/libretro/build/scummvm_libretro.so $INSTALL/usr/lib/libretro/
-  mkdir -p $INSTALL/usr/share/scummvm
-  unzip ${PKG_BUILD}/backends/platform/libretro/aux-data/scummvm.zip -d $INSTALL/usr/share/
+  mkdir -p ${INSTALL}/usr/lib/libretro
+  cp ${PKG_BUILD}/backends/platform/libretro/scummvm_libretro.so ${INSTALL}/usr/lib/libretro/
+  mkdir -p ${INSTALL}/usr/share/scummvm
+  unzip ${PKG_BUILD}/scummvm.zip -d ${INSTALL}/usr/share/
 }

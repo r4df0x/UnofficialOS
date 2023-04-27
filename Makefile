@@ -23,7 +23,7 @@ distclean:
 src-pkg:
 	tar cvJf sources.tar.xz sources .stamps
 
-world: x86_64 RK3566 RK3399 RK3326
+world: RK3326 RK3566 RK3399 x86_64
 
 x86_64: handheld
 
@@ -61,8 +61,8 @@ RG351MP:
 	DEVICE_ROOT=RG351P PROJECT=Rockchip DEVICE=RG351MP ARCH=aarch64 ./scripts/build_distro
 
 RGB20S:
-	DEVICE_ROOT=RGB20S PROJECT=Rockchip DEVICE=RGB20S ARCH=arm ./scripts/build_distro
-	DEVICE_ROOT=RGB20S PROJECT=Rockchip DEVICE=RGB20S ARCH=aarch64 ./scripts/build_distro
+	DEVICE_ROOT=RG351P PROJECT=Rockchip DEVICE=RGB20S ARCH=arm ./scripts/build_distro
+	DEVICE_ROOT=RG351P PROJECT=Rockchip DEVICE=RGB20S ARCH=aarch64 ./scripts/build_distro
 	
 update:
 	PROJECT=Rockchip DEVICE=RG552 ARCH=aarch64 ./scripts/update_packages

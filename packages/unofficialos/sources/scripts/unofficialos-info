@@ -71,18 +71,18 @@ done
 # temperature
 # Unit: millidegree Celsius
 TEMPE=$(cat ${DEVICE_TEMP_SENSOR} 2>/dev/null | sort -rn | head -1 | sed -e s+"[0-9][0-9][0-9]$"++)
-echo "SYSTEM INFORMATION:"
+echo "## SYSTEM INFORMATION:"
 echo "OPERATING SYSTEM: ${OS_NAME}"
 echo "VERSION: ${OS_VERSION}"
 echo "BUILD ID: ${BUILD_ID:0:7} (${BUILD_BRANCH})"
 echo "KERNEL: ${V_SYSTEM} ($(uname -m))"
-echo "DISK SPACE:"
+echo "## DISK SPACE:"
 echo "/storage: $(df -h /storage | awk '/dev/ {print $3"/"$2" ("$5")"}')"
 echo "/storage/roms: $(df -h /storage/roms | awk '/dev/ {print $3"/"$2" ("$5")"}')"
 
 if test -n "${BATT}"
 then
-    echo "BATTERY INFORMATION:"
+    echo "## BATTERY INFORMATION:"
     echo "BATTERY REMAINING: ${BATT}%"
     BATPATH="/sys/class/power_supply/$(ls /sys/class/power_supply/ | grep -i bat | tail -n 1)"
     if [ -e "${BATPATH}/health" ]
@@ -94,7 +94,7 @@ then
       echo "BATTERY STATE: $(cat ${BATPATH}/status)"
     fi
 fi
-echo "CPU INFORMATION:"
+echo "## CPU INFORMATION:"
 echo "CPU: ${V_CPUMODEL1} (${V_CPUNB} Cores)"
 if test -n "${TEMPE}"
 then

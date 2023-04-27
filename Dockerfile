@@ -10,10 +10,16 @@ RUN apt update  \
       xmlstarlet patchutils gawk gperf xfonts-utils default-jre python3 python-is-python3 xsltproc libjson-perl \
       lzop libncurses5-dev device-tree-compiler u-boot-tools rsync p7zip libparse-yapp-perl \
       zip binutils-aarch64-linux-gnu dos2unix p7zip-full libvpx-dev bsdmainutils bc meson p7zip-full \
-      qemu-user-binfmt zstd parted imagemagick \
+      qemu-user-binfmt zstd parted imagemagick locales \
       && apt autoremove --purge -y \
       && apt clean -y \
       && rm -rf /var/lib/apt/lists/*
+
+RUN sed -i -e 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/' /etc/locale.gen && \
+    dpkg-reconfigure --frontend=noninteractive locales && \
+    update-locale LANG=en_US.UTF-8
+
+ENV LANG en_US.UTF-8
 
 RUN adduser --disabled-password --gecos '' docker
 
